@@ -1,0 +1,50 @@
+# SPDX-License-Identifier: BSD-2-Clause
+
+pkgname=odin
+pkgver="dev_2022_06"
+pkgrel=1
+pkgdesc="The Data-Oriented Language for Sane Software Development."
+arch=(x86_64)
+url="https://odin-lang.org/"
+license=(BSD)
+depends=(llvm-libs)
+makedepends=(clang llvm)
+provides=(odin)
+
+source=(
+    "https://github.com/odin-lang/Odin/archive/refs/tags/dev-2022-06.zip"
+    "build_odin.sh.patch"
+)
+
+sha512sums=(
+    "6d495ff80c335f0d5e132e4ba54885424f7502462a6668027d33952f5fe5d0a234397d11afae7bf2df01dcaa432a5f88c414e24e84fcc86a0b81ed24b25d133c"
+    "SKIP"
+)
+
+build() {
+    cd Odin-*
+    patch build_odin.sh ../build_odin.sh.patch
+    make release
+}
+
+package() {
+    cd Odin-*
+    install --directory "${pkgdir}/usr/lib/odin"
+
+    # install odin binary. cannot place odin executable inside bin directory directly.
+    # using symlink instead. see: https://odin-lang.org/docs/install/#for-mac-and-nix-1
+    #    "The compiler currently relies on the core and shared library collection being
+    #     relative to the compiler executable. Installing the compiler in the usual sense
+    #     (to /usr/local/bin or similar) is therefore not as straight forward as you need
+    #     to make sure the mentioned libraries are available."
+    install --directory "${pkgdir}/usr/bin"
+    install odin "${pkgdir}/usr/lib/odin/odin"
+    ln --symbolic "/usr/lib/odin/odin" "${pkgdir}/usr/bin/odin"
+
+    # copy libraries: https://github.com/odin-lang/Odin#packages
+    cp --recursive core "${pkgdir}/usr/lib/odin"
+    cp --recursive vendor "${pkgdir}/usr/lib/odin"
+
+    # install license: https://wiki.archlinux.org/title/PKGBUILD#license
+    install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/odin/LICENSE"
+}
