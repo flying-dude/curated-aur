@@ -3,7 +3,7 @@
 usage = """
 Usage: aur-whitelist [-h|--help] [--config mylist.json] <packages...>
 
-Whitelist Arch Linux AUR package to be included in the current git-style AUR.
+Whitelist Arch Linux AUR package to be included in the curated AUR.
 This will save the name of the package together with a git commit id.
 
 Example:
@@ -24,8 +24,8 @@ args = sys.argv[1:]
 def error(msg):
     print(f"[error] {msg}")
 
-def r(args, cwd=None):
-    return subprocess.run(args, cwd=cwd)
+def r(args, cwd=None, input=None, encoding=None):
+    return subprocess.run(args, cwd=cwd, input=input, encoding=encoding)
 
 def get(args, cwd=None):
     return subprocess.check_output(args, cwd=cwd).decode('utf-8').rstrip()
@@ -56,11 +56,48 @@ if config_file.is_file():
 for pkg in pkgs:
     with tempfile.TemporaryDirectory(prefix=f"aur-whitelist__") as tmp:
         tmp = Path(tmp)
+
         r(["git", "clone", "--quiet", "--depth", "1", f"https://aur.archlinux.org/{pkg}.git"], cwd=tmp)
         commit = get(["git", "rev-parse", "HEAD"], cwd=tmp / pkg)
-        if not pkg in json_data or not json_data[pkg] == commit:
+
+        # silently proceed if no changes occur
+        if pkg in json_data and json_data[pkg] == commit:
+            continue
+
+        accept = True
+
+        diff = None
+        if not pkg in json_data:
+            # https://stackoverflow.com/questions/40883798/how-to-get-git-diff-of-the-first-commit
+            diff = get(["git", "--no-pager", "diff", "4b825dc642cb6eb9a060e54bf8d69288fbee4904", commit], cwd=tmp / pkg)
+        else:
+            diff = get(["git", "--no-pager", "diff", json_data[pkg], commit], cwd=tmp / pkg)
+
+        while True:
+            # show diff and ask for confirmation
+            r(["less"], input=diff, encoding="utf-8")
+            answer = input(f"Accept changes for package {pkg}? :: [y]es :: [n]o (skip) :: [r]eview again :: [a]bort ")
+            answer = answer.lower()
+
+            # https://stackoverflow.com/questions/12586601/remove-last-stdout-line-in-python
+            CURSOR_UP_ONE = '\x1b[1A'
+            ERASE_LINE = '\x1b[2K'
+            print(CURSOR_UP_ONE + ERASE_LINE + CURSOR_UP_ONE)
+
+            if answer.startswith("y"):
+                accept = True
+                break
+            elif answer.startswith("n"):
+                accept = False
+                break
+            elif answer.startswith("r"):
+                continue
+            elif answer.startswith("a"):
+                exit(1)
+
+        if accept:
             print(f"{commit} {pkg}")
-        json_data[pkg] = commit
+            json_data[pkg] = commit
 
 with open(config_file, 'w') as json_file:
     json.dump(json_data, json_file, sort_keys = True, indent = 4, ensure_ascii = False)
