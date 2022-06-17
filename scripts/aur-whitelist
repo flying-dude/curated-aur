@@ -1,0 +1,60 @@
+#!/usr/bin/python
+
+usage = """
+Usage: aur-whitelist [--config mylist.json] <packages...>
+
+Whitelist Arch Linux AUR package to be included in the current git-style AUR.
+This will save the name of the package together with a git commit id.
+
+Examples:
+    Whitelist latest version of xmake and build2 AUR packages:
+    $ aur-whitelist xmake build2
+""".rstrip().lstrip()
+
+import sys, os, json, tempfile, subprocess
+from pathlib import Path
+
+if len(sys.argv) == 1:
+    print(usage)
+    exit(0)
+
+script_dir = Path(os.path.dirname(os.path.realpath(__file__)))
+args = sys.argv[1:]
+
+def error(msg):
+    print(f"[error] {msg}")
+
+def r(args, cwd=None):
+    return subprocess.run(args, cwd=cwd)
+
+def get(args, cwd=None):
+    return subprocess.check_output(args, cwd=cwd).decode('utf-8').rstrip()
+
+config_file = script_dir / ".." / "aur-whitelist.json"
+if args[0] == "--config":
+    if len(args) < 2:
+        error("missing argument for --config flag.")
+        exit(1)
+    else:
+        config_file = Path(args[1])
+        args = args[2:]
+
+pkgs = args
+
+json_data = {}
+if config_file.is_file():
+    with open(config_file) as f:
+        json_data = json.load(f)
+
+for pkg in pkgs:
+    with tempfile.TemporaryDirectory(prefix=f"aur-whitelist__") as tmp:
+        tmp = Path(tmp)
+        r(["git", "clone", "--quiet", "--depth", "1", f"https://aur.archlinux.org/{pkg}.git"], cwd=tmp)
+        commit = get(["git", "rev-parse", "HEAD"], cwd=tmp / pkg)
+        if not pkg in json_data or not json_data[pkg] == commit:
+            print(f"{commit} {pkg}")
+        json_data[pkg] = commit
+
+with open(config_file, 'w') as json_file:
+    json.dump(json_data, json_file, sort_keys = True, indent = 4, ensure_ascii = False)
+    json_file.write("\n")
