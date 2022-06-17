@@ -21,9 +21,11 @@ contains a (long) list of packages from the Arch Linux
 [AUR](https://wiki.archlinux.org/title/Arch_User_Repository),
 that have been reviewed and accepted for usage with packages in this repository.
 
-You can add more packages to the list of accepted packages by using the
+You can add more entries to the list of accepted packages by using the
 [aur-whitelist](https://github.com/flying-dude/curated-aur/tree/main/scripts/aur-whitelist)
-script. The script will automatically update `aur-whitelist.json` and print new entries to command line. Example use:
+script. The script will automatically update `aur-whitelist.json` and print new entries to command line.
+
+Example use:
 
 ```
 $ ./scripts/aur-whitelist xmake build2 archivemount mount-zip

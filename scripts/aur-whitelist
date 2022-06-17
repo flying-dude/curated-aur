@@ -1,12 +1,12 @@
 #!/usr/bin/python
 
 usage = """
-Usage: aur-whitelist [--config mylist.json] <packages...>
+Usage: aur-whitelist [-h|--help] [--config mylist.json] <packages...>
 
 Whitelist Arch Linux AUR package to be included in the current git-style AUR.
 This will save the name of the package together with a git commit id.
 
-Examples:
+Example:
     Whitelist latest version of xmake and build2 AUR packages:
     $ aur-whitelist xmake build2
 """.rstrip().lstrip()
@@ -31,13 +31,20 @@ def get(args, cwd=None):
     return subprocess.check_output(args, cwd=cwd).decode('utf-8').rstrip()
 
 config_file = script_dir / ".." / "aur-whitelist.json"
-if args[0] == "--config":
-    if len(args) < 2:
-        error("missing argument for --config flag.")
-        exit(1)
-    else:
-        config_file = Path(args[1])
-        args = args[2:]
+
+while args[0].startswith("-"):
+    if args[0] == "-h" or args[0] == "--help":
+        print(usage)
+        exit(0)
+
+    if args[0] == "--config":
+        if len(args) < 2:
+            error("missing argument for --config flag.")
+            exit(1)
+        else:
+            config_file = Path(args[1])
+            args = args[2:]
+        continue
 
 pkgs = args
 
