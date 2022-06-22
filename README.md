@@ -1,6 +1,6 @@
 # curated-aur
 
-A curated [AUR](https://wiki.archlinux.org/title/Arch_User_Repository) for Arch Linux.
+A Curated [AUR](https://wiki.archlinux.org/title/Arch_User_Repository) for Arch Linux.
 
 ## Usage
 
