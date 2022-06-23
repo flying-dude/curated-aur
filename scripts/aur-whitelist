@@ -62,7 +62,7 @@ for pkg in pkgs:
 
         # silently proceed if no changes occur
         if pkg in json_data and json_data[pkg] == commit:
-            print(f"already accepted, skipping: {pkg}")
+            print(f"accepted and up-to-date, skipping: {pkg}")
             continue
 
         accept = True
