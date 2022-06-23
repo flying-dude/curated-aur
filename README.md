@@ -1,10 +1,12 @@
 # curated-aur
 
-A Curated [AUR](https://wiki.archlinux.org/title/Arch_User_Repository) for Arch Linux.
+A [curated](https://www.reddit.com/r/archlinux/comments/v97zei/launching_a_curated_aur_hosted_on_github/) repository of package recipies for Arch Linux. This complements the [AUR](https://wiki.archlinux.org/title/Arch_User_Repository).
 
 ## Usage
 
-Use `git clone` to fetch packages and `git pull` to keep updated.
+The primary way is to use the [ymerge](https://github.com/flying-dude/ymerge) package manager to install and remove packages.
+
+Alternatively, you can work with the git repository directly, if you want. Use `git clone` to fetch packages and `git pull` to keep updated.
 This is how you would install the [odin](https://github.com/flying-dude/curated-aur/tree/main/pkg/odin) package:
 
 ```

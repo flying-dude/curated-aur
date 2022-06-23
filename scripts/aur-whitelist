@@ -57,7 +57,7 @@ for pkg in pkgs:
     with tempfile.TemporaryDirectory(prefix=f"aur-whitelist__") as tmp:
         tmp = Path(tmp)
 
-        r(["git", "clone", "--quiet", "--depth", "1", f"https://aur.archlinux.org/{pkg}.git"], cwd=tmp)
+        r(["git", "clone", "--quiet", f"https://aur.archlinux.org/{pkg}.git"], cwd=tmp)
         commit = get(["git", "rev-parse", "HEAD"], cwd=tmp / pkg)
 
         # silently proceed if no changes occur
