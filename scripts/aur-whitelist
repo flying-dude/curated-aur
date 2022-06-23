@@ -4,7 +4,7 @@ usage = """
 Usage: aur-whitelist [-h|--help] [--config mylist.json] <packages...>
 
 Whitelist Arch Linux AUR package to be included in the curated AUR.
-This will save the name of the package together with a git commit id.
+This will save the name of the package together with the most recent git commit id.
 
 Example:
     Whitelist latest version of xmake and build2 AUR packages:

@@ -23,16 +23,41 @@ contains a (long) list of packages from the Arch Linux
 [AUR](https://wiki.archlinux.org/title/Arch_User_Repository),
 that have been reviewed and accepted for usage with packages in this repository.
 
-You can add more entries to the list of accepted packages by using the
+You can add more entries to the list of accepted packages, by using the
 [aur-whitelist](https://github.com/flying-dude/curated-aur/tree/main/scripts/aur-whitelist)
-script. The script will automatically update `aur-whitelist.json` and print new entries to command line.
-
-Example use:
+script.
+The script will automatically update the whitelist and print new entries to the command line.
 
 ```
+Usage: aur-whitelist [-h|--help] [--config mylist.json] <packages...>
+
+Whitelist Arch Linux AUR package to be included in the curated AUR.
+This will save the name of the package together with the most recent git commit id.
+
+Example:
+    Whitelist latest version of xmake and build2 AUR packages:
+    $ aur-whitelist xmake build2
+```
+
+Note that the script will auto-detect the file system location of the whitelist file
+[relative](https://github.com/flying-dude/curated-aur/blob/cfe3f9a10e468c90f23317de7a4390abfd083ab8/scripts/aur-whitelist#L33)
+to its own position.
+So if you just clone the git repo and then run the whitelist script inside that repo, it will find the correct whitelist file and update its entries:
+
+```
+$ https://github.com/flying-dude/curated-aur
+$ cd curated-aur
 $ ./scripts/aur-whitelist xmake build2 archivemount mount-zip
 2ae835df306f3541e0384f6803f5972fedc3aad8 xmake
 4424cce8e2f4d87fa54b1b53a354dec7d784e8f9 build2
 e04e7dacb8d60a0c263fefb94f0dac20829ce515 archivemount
 59809caf1ab342df88d60beb6dcc26fa8d2b8572 mount-zip
+$ cat aur-whitelist.json
+{
+    "archivemount": "e04e7dacb8d60a0c263fefb94f0dac20829ce515",
+    "build2": "4424cce8e2f4d87fa54b1b53a354dec7d784e8f9",
+    "mount-zip": "59809caf1ab342df88d60beb6dcc26fa8d2b8572",
+    "xmake": "42262f834457dcfeb97c4888b06cc39f59f32ab3"
+}
 ```
+
