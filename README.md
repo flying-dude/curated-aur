@@ -61,3 +61,10 @@ $ cat aur-whitelist.json
 }
 ```
 
+## Packaging Guidelines
+
+The curated AUR should be a reliable source of good quality packages. Consider the following criteria, when adding new packages to the repository:
+
+* Verify all downloads with checksums. At minimum sha256sum. But b2sum or sha512sum is preferred.
+* Avoid doing git clones. We want to fetch releases whenever possible.
+* Packages need to be compiled from source. No binaries.
