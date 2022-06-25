@@ -2,7 +2,7 @@
 
 pkgname=ymerge
 pkgver="0.0.1"
-pkgrel=2
+pkgrel=3
 pkgdesc="A Source-Based Package Manager for Arch Linux."
 arch=(x86_64)
 url="https://github.com/flying-dude/ymerge/"
@@ -24,7 +24,7 @@ b2sums=(
 build() {
     cp --no-target-directory --recursive libXDGdirs-* ymerge-*/src/submodules/libxdgdirs/
     cd ymerge-*
-    cmake -S . -B build -GNinja
+    cmake -S . -B build -GNinja -DCMAKE_BUILD_TYPE=Release
     cmake --build build
 }
 
