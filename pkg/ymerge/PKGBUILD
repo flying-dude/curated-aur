@@ -2,7 +2,7 @@
 
 pkgname=ymerge
 pkgver="0.0.2"
-pkgrel=1
+pkgrel=2
 pkgdesc="A Source-Based Package Manager for Arch Linux."
 arch=(x86_64)
 url="https://github.com/flying-dude/ymerge/"
@@ -12,12 +12,12 @@ makedepends=(cmake fmt nlohmann-json ninja)
 provides=(ymerge)
 
 source=(
-    "https://github.com/flying-dude/ymerge/archive/d262f61f67d7ab25fa16ab2f29f0da41a4a9189d.zip"
+    "https://github.com/flying-dude/ymerge/archive/refs/tags/${pkgver}.zip"
     "https://github.com/Jorengarenar/libXDGdirs/archive/84ab4117b787c4079965c98b4578a38b63795cc0.zip"
 )
 
 b2sums=(
-    "a1f3422044abdd52b316d6755f386c9ddbee881b25984f8cc9cc32c3588015cbbe3ddb790b78c80e1488e04ac1ba17c7ed61862f613a793d899d271f3c64fa6e"
+    "cefe004f1de15906bdadcceb5d4137e990f3ec20ea4bbeb544f997d68bcd078a7b34454b84fe64b41cbec99371673d93225ba0a2f89cc02a7185519490ea1b4a"
     "816f464b468ce668cb3bf4e869e683c045a8083ec43f020df2096189a408890e41b3ec7a26b72f06cf16ed31883228f810385968162baa5c87b61cdbe37004ff"
 )
 
