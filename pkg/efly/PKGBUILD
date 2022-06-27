@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: BSD-2-Clause
+
+pkgname=efly
+pkgver="0.0.3"
+pkgrel=1
+pkgdesc="Create Arch-based bootable disk images."
+arch=(x86_64)
+url="https://github.com/flying-dude/efly/"
+license=(BSD)
+depends=(python python-colorama dosfstools e2fsprogs squashfs-tools gptfdisk)
+provides=(efly)
+
+source=("https://github.com/flying-dude/efly/archive/refs/tags/${pkgver}.zip")
+b2sums=('85600a142e4621fefa5b400b335df7e07ec23b10f48418e83918c9715257b06708764c42cbfe1da84e603c21ed253c3af473a28473acd63a67854b2ed53f8ebd')
+
+build() {
+    cd efly-*
+    sed -i s/UNKNOWN_VERSION/$pkgver/ src/efly/efly
+}
+
+package() {
+    cd efly-*
+
+    mkdir --parents ${pkgdir}/usr/lib
+    cp --recursive src/efly/ ${pkgdir}/usr/lib
+
+    rm ${pkgdir}/usr/lib/efly/img
+    cp --recursive data/img/ ${pkgdir}/usr/lib/efly/
+
+    mkdir --parents ${pkgdir}/usr/bin
+    ln -s /usr/lib/efly/efly ${pkgdir}/usr/bin/efly
+}
