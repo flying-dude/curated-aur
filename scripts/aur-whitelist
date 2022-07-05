@@ -63,7 +63,7 @@ for pkg in pkgs:
         r(["git", "clone", "--quiet", f"https://aur.archlinux.org/{pkg}.git"], cwd=tmp)
         commit = get(["git", "rev-parse", "HEAD"], cwd=tmp / pkg)
 
-        # silently proceed if no changes occur
+        # proceed if no changes occur
         if pkg in json_data and json_data[pkg] == commit:
             print(f"accepted and up-to-date, skipping: {pkg}")
             continue
@@ -71,7 +71,8 @@ for pkg in pkgs:
         accept = True
 
         diff = None
-        if not pkg in json_data:
+        is_new = not pkg in json_data
+        if is_new:
             # https://stackoverflow.com/questions/40883798/how-to-get-git-diff-of-the-first-commit
             diff = get(["git", "--no-pager", "diff", "4b825dc642cb6eb9a060e54bf8d69288fbee4904", commit], cwd=tmp / pkg)
         else:
@@ -100,7 +101,10 @@ for pkg in pkgs:
                 exit(1)
 
         if accept:
-            print(f"{commit} {pkg}")
+            if is_new:
+                print(f"{commit} (new package) {pkg}")
+            else:
+                print(f"{commit} (update) {pkg}")
             json_data[pkg] = commit
 
 with open(config_file, 'w') as json_file:

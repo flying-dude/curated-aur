@@ -11,11 +11,12 @@
     "octopi-notifier-frameworks": "d20ba4e03e43baaa00b136cbc5d485fe5d575de8",
     "octopi-notifier-noknotify": "f291355e0f79201f881f138cc3f008a3e0c28e6c",
     "octopi-notifier-qt5": "4f8c535f9fb4c0943a43c658d3e2d5003c632cfa",
-    "paru": "4d686fc944699297f601a43ecc6327e95672f10c",
+    "paru": "ac60fd368929d35e3bdbb7c4d2af393854f26489",
     "quickjs": "7ae50d5bc88d4e2522f42cec8cd155ec1d1a92c7",
     "sylpheed": "7faf7835587fd14a9ceb1fa81fc652143be3699e",
     "trizen": "5c4d19320af3c164476a60ac2c745f84410977fd",
     "ungoogled-chromium": "d5b7cbc865be0a0dd275190dba11768249e067e1",
     "xmake": "42262f834457dcfeb97c4888b06cc39f59f32ab3",
+    "xrdp": "5334cf7ffd927a1366163872383ef0d506d43419",
     "yay": "76f0c3a7a8a9d7a0b5382716aacb16fc8e01b2b8"
 }
