@@ -4,4 +4,4 @@
 < CFLAGS="-std=c++14 -DGIT_SHA=\"$GIT_SHA\""
 < CFLAGS="$CFLAGS -DODIN_VERSION_RAW=\"dev-$(date +"%Y-%m")\""
 ---
-> CFLAGS="-std=c++14 -DODIN_VERSION_RAW=\"dev-2022-06\""
+> CFLAGS="-std=c++14 -DODIN_VERSION_RAW=\"dev-2022-07\""

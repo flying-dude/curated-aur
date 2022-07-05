@@ -1,7 +1,9 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
+year="2022"
+month="07"
 pkgname=odin
-pkgver="dev_2022_06"
+pkgver="dev_${year}_${month}"
 pkgrel=1
 pkgdesc="The Data-Oriented Language for Sane Software Development."
 arch=(x86_64)
@@ -12,14 +14,12 @@ makedepends=(clang llvm)
 provides=(odin)
 
 source=(
-    "https://github.com/odin-lang/Odin/archive/refs/tags/dev-2022-06.zip"
+    "https://github.com/odin-lang/Odin/archive/refs/tags/dev-${year}-${month}.zip"
     "build_odin.sh.patch"
 )
 
-sha512sums=(
-    "6d495ff80c335f0d5e132e4ba54885424f7502462a6668027d33952f5fe5d0a234397d11afae7bf2df01dcaa432a5f88c414e24e84fcc86a0b81ed24b25d133c"
-    "SKIP"
-)
+b2sums=('52a5f77c0c00af1fede3960a0384a884ddbd396596c24b3e05146bc00404b63bd72ca20c931fd61721aa784a964290efba27be6dc8bed90bc2257681e8e83fac'
+        'SKIP')
 
 build() {
     cd Odin-*
