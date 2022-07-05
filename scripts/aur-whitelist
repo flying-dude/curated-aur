@@ -14,6 +14,9 @@ Example:
 import sys, os, json, tempfile, subprocess
 from pathlib import Path
 
+from shutil import which
+pager = "bat" if which("bat") else "less"
+
 if len(sys.argv) == 1:
     print(usage)
     exit(0)
@@ -76,7 +79,7 @@ for pkg in pkgs:
 
         while True:
             # show diff and ask for confirmation
-            r(["less"], input=diff, encoding="utf-8")
+            r([pager], input=diff, encoding="utf-8")
             answer = input(f"Accept changes for package {pkg}? :: [y]es :: [n]o (skip) :: [r]eview again :: [a]bort ")
             answer = answer.lower()
 
