@@ -81,7 +81,7 @@ for pkg in pkgs:
         while True:
             # show diff and ask for confirmation
             r([pager], input=diff, encoding="utf-8")
-            answer = input(f"Accept changes for package {pkg}? :: [y]es :: [n]o (skip) :: [r]eview again :: [a]bort ")
+            answer = input(f"Accept changes for package {pkg}? :: [y]es :: [n]o (skip) :: [r]eview again :: [a]bort ? .. ")
             answer = answer.lower()
 
             # https://stackoverflow.com/questions/12586601/remove-last-stdout-line-in-python
