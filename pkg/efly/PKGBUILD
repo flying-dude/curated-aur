@@ -11,7 +11,7 @@ depends=(python python-colorama dosfstools e2fsprogs squashfs-tools gptfdisk)
 provides=(efly)
 
 source=("https://github.com/flying-dude/efly/archive/refs/tags/${pkgver}.zip")
-b2sums=('fa90b7c64c6bf0dadb0809e1e7009330e7a5eb989d9cbb58eb6d1d655d91395144a422efbe013719e04c29bba1b099d19e31c15e93642627469b94c46b1e87da')
+b2sums=('98cce027dade3dd8f960a052f092eeccc0206633b479834f1c680d287330fcaa4ca82c08bdd7130b346045d7f88175c5bc536fb960567cdffd9890d500b2bf60')
 
 build() {
     cd efly-*
