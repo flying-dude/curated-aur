@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 pkgname=ymerge
-pkgver="0.0.2"
+pkgver="0.0.3"
 pkgrel=1
 pkgdesc="A Source-Based Package Manager for Arch Linux."
 arch=(x86_64)
@@ -16,7 +16,7 @@ source=(
     "https://github.com/Jorengarenar/libXDGdirs/archive/84ab4117b787c4079965c98b4578a38b63795cc0.zip"
 )
 
-b2sums=('1f19b8fb15a00f83f34b6338c376603ee51700ffb44262452525324cc2f3d1414b9a7bdd2fba04aef4876e2142b3da454845cc93cf772b9123de9224ea9a73c3'
+b2sums=('1a86bcc82c79d97b3c7695ef6881d79591cacaa985f75993547290cfe0741020169d82f16e9a51c9ef36e99632961988569f40c7b8c7094bd218e10981441e4a'
         '816f464b468ce668cb3bf4e869e683c045a8083ec43f020df2096189a408890e41b3ec7a26b72f06cf16ed31883228f810385968162baa5c87b61cdbe37004ff')
 
 build() {
