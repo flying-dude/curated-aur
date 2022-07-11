@@ -7,7 +7,7 @@ pkgdesc="A Source-Based Package Manager for Arch Linux."
 arch=(x86_64)
 url="https://github.com/flying-dude/ymerge/"
 license=(BSD)
-depends=(fmt git abseil-cpp)
+depends=(pacman fmt git abseil-cpp)
 makedepends=(cmake fmt nlohmann-json ninja gtest)
 provides=(ymerge)
 
@@ -16,7 +16,7 @@ source=(
     "https://github.com/Jorengarenar/libXDGdirs/archive/84ab4117b787c4079965c98b4578a38b63795cc0.zip"
 )
 
-b2sums=('1a86bcc82c79d97b3c7695ef6881d79591cacaa985f75993547290cfe0741020169d82f16e9a51c9ef36e99632961988569f40c7b8c7094bd218e10981441e4a'
+b2sums=('45f70a55a76142f0a9ec895aa7c4eeb802c606ae4608e9e3d431ebf9488b9963a1070a7acc20928cf8ef308f441f3e42aa1d6e791ddf732a5bf26740e511937a'
         '816f464b468ce668cb3bf4e869e683c045a8083ec43f020df2096189a408890e41b3ec7a26b72f06cf16ed31883228f810385968162baa5c87b61cdbe37004ff')
 
 build() {
