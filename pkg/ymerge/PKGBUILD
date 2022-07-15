@@ -2,12 +2,12 @@
 
 pkgname=ymerge
 pkgver="0.0.3"
-pkgrel=1
+pkgrel=2
 pkgdesc="A Source-Based Package Manager for Arch Linux."
 arch=(x86_64)
 url="https://github.com/flying-dude/ymerge/"
 license=(BSD)
-depends=(pacman fmt git abseil-cpp)
+depends=(base-devel pacman fmt git abseil-cpp)
 makedepends=(cmake fmt nlohmann-json ninja gtest)
 provides=(ymerge)
 
