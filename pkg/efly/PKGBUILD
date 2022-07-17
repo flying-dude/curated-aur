@@ -2,14 +2,14 @@
 
 pkgname=efly
 pkgver="0.0.1"
-pkgrel=1
+pkgrel=2
 pkgdesc="Create Arch-based bootable disk images."
 arch=(x86_64)
 url="https://github.com/flying-dude/efly/"
 license=(BSD)
 depends=(python python-colorama dosfstools e2fsprogs squashfs-tools gptfdisk)
 provides=(efly)
-
+optdepends=('qemu-desktop: Unlock efly-qemu subcommand to launch disk images inside qemu.')
 source=("https://github.com/flying-dude/efly/archive/refs/tags/${pkgver}.zip")
 b2sums=('98cce027dade3dd8f960a052f092eeccc0206633b479834f1c680d287330fcaa4ca82c08bdd7130b346045d7f88175c5bc536fb960567cdffd9890d500b2bf60')
 
