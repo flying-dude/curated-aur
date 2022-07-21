@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 pkgname=efly
-pkgver="0.0.1"
-pkgrel=2
+pkgver="0.0.2"
+pkgrel=1
 pkgdesc="Create Arch-based bootable disk images."
 arch=(x86_64)
 url="https://github.com/flying-dude/efly/"
@@ -11,11 +11,11 @@ depends=(python python-colorama dosfstools e2fsprogs squashfs-tools gptfdisk)
 provides=(efly)
 optdepends=('qemu-desktop: Unlock efly-qemu subcommand to launch disk images inside qemu.')
 source=("https://github.com/flying-dude/efly/archive/refs/tags/${pkgver}.zip")
-b2sums=('98cce027dade3dd8f960a052f092eeccc0206633b479834f1c680d287330fcaa4ca82c08bdd7130b346045d7f88175c5bc536fb960567cdffd9890d500b2bf60')
+b2sums=('fb66f35e0ca44df6c9444889f9367c882c0ad4d19782d154f18e3e8b2ef268dca1350d9f339228712814ec4f49e7144660c8310901ce429f9093f9719aac1327')
 
 build() {
     cd efly-*
-    sed -i s/UNKNOWN_VERSION/$pkgver/ src/efly/efly
+    sed -i s/UNKNOWN_VERSION/$pkgver/ src/efly/elib.py
 }
 
 package() {
@@ -24,8 +24,8 @@ package() {
     mkdir --parents ${pkgdir}/usr/lib
     cp --recursive src/efly/ ${pkgdir}/usr/lib
 
-    rm ${pkgdir}/usr/lib/efly/img
-    cp --recursive data/img/ ${pkgdir}/usr/lib/efly/
+    rm ${pkgdir}/usr/lib/efly/data
+    cp --recursive data/ ${pkgdir}/usr/lib/efly/
 
     mkdir --parents ${pkgdir}/usr/bin
     ln -s /usr/lib/efly/efly ${pkgdir}/usr/bin/efly
