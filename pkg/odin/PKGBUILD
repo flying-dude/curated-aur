@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 year="2022"
-month="07"
+month="08"
 pkgname=odin
 pkgver="dev_${year}_${month}"
 pkgrel=1
@@ -13,17 +13,11 @@ depends=(llvm-libs)
 makedepends=(clang llvm)
 provides=(odin)
 
-source=(
-    "https://github.com/odin-lang/Odin/archive/refs/tags/dev-${year}-${month}.zip"
-    "build_odin.sh.patch"
-)
-
-b2sums=('52a5f77c0c00af1fede3960a0384a884ddbd396596c24b3e05146bc00404b63bd72ca20c931fd61721aa784a964290efba27be6dc8bed90bc2257681e8e83fac'
-        'SKIP')
+source=("https://github.com/odin-lang/Odin/archive/refs/tags/dev-${year}-${month}.zip")
+b2sums=('d3b98feaad9d28c531a17ed1b44fd805a21ef92cf01f0382c67f12b08e0dadb4274ffdaabbb0fa026c13a56999ef0043cc39fbb3696af9e8f9c223093cdf9656')
 
 build() {
     cd Odin-*
-    patch build_odin.sh ../build_odin.sh.patch
     make release
 }
 

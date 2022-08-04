@@ -1,7 +1,0 @@
-4d3
-< GIT_SHA=$(git rev-parse --short HEAD)
-7,8c6
-< CFLAGS="-std=c++14 -DGIT_SHA=\"$GIT_SHA\""
-< CFLAGS="$CFLAGS -DODIN_VERSION_RAW=\"dev-$(date +"%Y-%m")\""
----
-> CFLAGS="-std=c++14 -DODIN_VERSION_RAW=\"dev-2022-07\""
