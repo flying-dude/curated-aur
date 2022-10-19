@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: BSD-2-Clause
 
 pkgname=efly
-pkgver="0.0.2"
-pkgrel=3
+pkgver="0.0.4"
+pkgrel=1
 pkgdesc="Create Arch-based bootable disk images."
 arch=(x86_64)
 url="https://github.com/flying-dude/efly/"
@@ -15,7 +15,7 @@ optdepends=(
 'tigervnc: Unlock efly-vncserver subcommand to easily launch a vnc server as unprivileged user.'
 )
 source=("https://github.com/flying-dude/efly/archive/refs/tags/${pkgver}.zip")
-b2sums=('fb66f35e0ca44df6c9444889f9367c882c0ad4d19782d154f18e3e8b2ef268dca1350d9f339228712814ec4f49e7144660c8310901ce429f9093f9719aac1327')
+b2sums=('bc759348f63d211851b91aec3c84eb64dc0dc4fc2d1a35cb55b4d63b7c9b0b173881768b1d15442449a838991c36846976f66e4719bbfadb5577a9de44630eb6')
 
 build() {
     cd efly-*
