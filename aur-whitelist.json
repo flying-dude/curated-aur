@@ -13,6 +13,7 @@
     "calculix": "af9f127433d9fce08a90f65f996ed0f871c21ac2",
     "calculix-doc": "52c0c251083f32bb5f6ffa4424c35c59fa695b38",
     "cava": "894995505b12772c113e5633c6c54e442bc5e242",
+    "ceph": "c793d9d29b6d7f6eaa0909cec1443fd14f13eb80",
     "coccinelle": "1d6f6239697f10379dc6b96840dfa8fa4324c87f",
     "codelite": "ee8a13df60eb30051121976a59c2c9e8d97ca879",
     "debtap": "c9b74e5cf0084b68a642c4a0b62738f15be86a58",
@@ -21,6 +22,7 @@
     "done": "9d74a8af62a9cc40e8a4228bacd198e5a06b06a7",
     "entt": "a42c62b7b98dc89be9b1c1ec9c47d0429a4f133f",
     "etcd": "7cfcc06ea8d5b1eb72c598a27409b7297eca9f05",
+    "fend": "3e6c6daa7ca09021ec8a01f8fb8c7defa738df00",
     "folly": "348a2bca242e5169f8b1d703d669630c5d708a7f",
     "fsearch": "35c5ffac863973a60cfea2317fa1ebb07f82f234",
     "labwc": "c901f61ce00f6658ad49be09cf3ad84bf89a2712",
@@ -57,6 +59,7 @@
     "thinkfan": "313b98b0c755b0fa8d883054edebb890f2a83d9d",
     "trizen": "5c4d19320af3c164476a60ac2c745f84410977fd",
     "ungoogled-chromium": "48b64d3684240c81e2454326533f562973b2ba17",
+    "unrar-free": "bfdd65a245428d100987894bb139989a2178bde7",
     "usb-creator": "2ae0cdadf11bf455ef6cb7a1de8688d30cc0b820",
     "video-downloader": "42f0d197728e1de56c51108e8bc645b8d4423d71",
     "wayfire": "0c3621cc1c809a8ff086df9ac5cef4511573180e",
@@ -70,6 +73,7 @@
     "xmake": "b448e00175db235927b38d50ba85d557f4ac2b3c",
     "xorgxrdp": "1d939a0cf1d605a2e395a544704e3312685e4206",
     "xrdp": "5334cf7ffd927a1366163872383ef0d506d43419",
+    "yacy": "14b99e76a4fa1abee45404fb79e4a1f9cbf4f98f",
     "yay": "941984753e37215a6c8cacd3260cb68960781cd8",
     "zypper": "b92da4f3e1927bd3d7e7b2242938974f11c74b75"
 }
