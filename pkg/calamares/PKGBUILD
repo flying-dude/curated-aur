@@ -1,0 +1,32 @@
+pkgname=calamares
+pkgver=3.2.61
+pkgrel=1
+pkgdesc='Distribution-independent installer framework'
+arch=('x86_64')
+url="https://calamares.io/"
+license=('GPL3')
+provides=('calamares')
+depends=("yaml-cpp" "polkit-qt5" "qt5-svg" "qt5-quickcontrols" "kcoreaddons")
+makedepends=("extra-cmake-modules" "ninja" "qt5-tools")
+
+source=("https://github.com/calamares/calamares/releases/download/v$pkgver/calamares-$pkgver.tar.gz")
+sha256sums=('7591b9b60738bdba7b9de2b8da5462ab21006db06a006f0dd21ac5b832711dd2')
+
+build() {
+	cd calamares-${pkgver}
+	cmake -S . -B build -GNinja \
+		-DCMAKE_BUILD_TYPE=Release \
+		-DCMAKE_INSTALL_PREFIX=/usr \
+		-DCMAKE_INSTALL_LIBDIR=lib \
+		-DWITH_PYTHONQT:BOOL=ON \
+		-DBoost_NO_BOOST_CMAKE=ON \
+		-DSKIP_MODULES="webview interactiveterminal initramfs \
+			initramfscfg dracut dracutlukscfg \
+			dummyprocess dummypython dummycpp \
+			dummypythonqt services-openrc"
+	cmake --build build
+}
+
+package() {
+	DESTDIR="$pkgdir/" ninja -C calamares-${pkgver}/build install
+}
