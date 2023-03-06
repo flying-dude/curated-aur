@@ -16,6 +16,7 @@
     "ceph": "c793d9d29b6d7f6eaa0909cec1443fd14f13eb80",
     "coccinelle": "1d6f6239697f10379dc6b96840dfa8fa4324c87f",
     "codelite": "ee8a13df60eb30051121976a59c2c9e8d97ca879",
+    "cpu-x": "bed2939b03a2a61a8b79ce87166695328a8b8bee",
     "debtap": "c9b74e5cf0084b68a642c4a0b62738f15be86a58",
     "doas": "fe3daff1e0ebb2d61fba18653ad2f9146598ab6e",
     "docker-rootless-extras": "18e4f1d42625dedbdfd4d3416fffcc19f0e9c1b5",
