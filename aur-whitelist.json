@@ -18,6 +18,7 @@
     "codelite": "ee8a13df60eb30051121976a59c2c9e8d97ca879",
     "cpu-x": "bed2939b03a2a61a8b79ce87166695328a8b8bee",
     "debtap": "c9b74e5cf0084b68a642c4a0b62738f15be86a58",
+    "dendrite": "e231d6396573c1c525c663852037c122665d7c8c",
     "doas": "fe3daff1e0ebb2d61fba18653ad2f9146598ab6e",
     "docker-rootless-extras": "18e4f1d42625dedbdfd4d3416fffcc19f0e9c1b5",
     "done": "9d74a8af62a9cc40e8a4228bacd198e5a06b06a7",
