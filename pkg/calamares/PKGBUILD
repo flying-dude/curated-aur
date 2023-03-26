@@ -6,8 +6,17 @@ arch=('x86_64')
 url="https://calamares.io/"
 license=('GPL3')
 provides=('calamares')
-depends=("yaml-cpp" "polkit-qt5" "qt5-svg" "qt5-quickcontrols" "kcoreaddons")
-makedepends=("extra-cmake-modules" "ninja" "qt5-tools")
+
+depends=(
+"boost" "yaml-cpp" "os-prober"
+"polkit-qt5" "qt5-svg" "qt5-quickcontrols" "kcoreaddons" "kpmcore"
+)
+
+makedepends=(
+"boost" # won't build python-based modules unless boost-python (contained in boost) is present at build time.
+"extra-cmake-modules" "ninja" "qt5-tools"
+"kpmcore" # won't build "partition" module unless kpmcore is present at build time.
+)
 
 source=("https://github.com/calamares/calamares/releases/download/v$pkgver/calamares-$pkgver.tar.gz")
 sha256sums=('7591b9b60738bdba7b9de2b8da5462ab21006db06a006f0dd21ac5b832711dd2')
