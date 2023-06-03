@@ -42,4 +42,10 @@ build() {
 package() {
     cd ymerge-*/build/
     DESTDIR="${pkgdir}" ninja install
+
+    # create a user "ymerge", that will build the packages
+    # https://man.archlinux.org/man/systemd-sysusers.8.en
+    mkdir --parents ${pkgdir}/usr/lib/sysusers.d
+    echo "u ymerge - \"build ymerge packages\"" > ${pkgdir}/usr/lib/sysusers.d/ymerge.conf
+    echo "m ymerge wheel" >> ${pkgdir}/usr/lib/sysusers.d/ymerge.conf
 }
