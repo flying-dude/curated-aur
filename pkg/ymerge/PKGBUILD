@@ -7,7 +7,7 @@ pkgdesc="A Source-Based Package Manager for Arch Linux."
 arch=(x86_64)
 url="https://github.com/flying-dude/ymerge/"
 license=(BSD)
-depends=(pacman fmt git abseil-cpp)
+depends=(pacman fmt git abseil-cpp sudo)
 makedepends=(cmake fmt nlohmann-json ninja)
 provides=(ymerge)
 
