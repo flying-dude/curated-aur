@@ -19,7 +19,7 @@
     "cpu-x": "bed2939b03a2a61a8b79ce87166695328a8b8bee",
     "debtap": "c9b74e5cf0084b68a642c4a0b62738f15be86a58",
     "dendrite": "0f36446c8eb1f5f3cb7e811cd84f305f52db8a10",
-    "doas": "fe3daff1e0ebb2d61fba18653ad2f9146598ab6e",
+    "doas-sudo-shim": "658b394d87c75fff11ec51ad7299a0339f31f87f",
     "docker-rootless-extras": "18e4f1d42625dedbdfd4d3416fffcc19f0e9c1b5",
     "done": "9d74a8af62a9cc40e8a4228bacd198e5a06b06a7",
     "dooble": "36e46b9d235d9485a0be0b0ac8ec1cb6f3e7c165",
