@@ -30,6 +30,7 @@
     "frog-ocr": "d0ce0e16f26c7f671b90b7ad1ccd62081bf8cea9",
     "fsearch": "35c5ffac863973a60cfea2317fa1ebb07f82f234",
     "gyro": "7c3815bea1ce69be0697cf005a669570513f3bcf",
+    "intellij-idea-ultimate-edition": "c8b0903786b29697ac92521deddbc7f5c03957c6",
     "korai": "5245b2abe8be1855e82a6c08c7382f4a05ff1fdc",
     "labwc": "c901f61ce00f6658ad49be09cf3ad84bf89a2712",
     "librewolf": "790c97702706dceefd409db7f2b13f371eb37b61",
@@ -45,6 +46,7 @@
     "nedit": "47357384c68d2000bdc49fe5b19e0791b29b67d9",
     "netbird": "c2029cdf254e8698dae2e3aac94bdea8c2f4cd65",
     "netbird-ui": "329877c55fe3b4bb68e0537fbee742ae626fc782",
+    "nm-tray": "0064826eaccab7360538101a844bfcefc95a277a",
     "normcap": "cac8b1d8c347aa8fc1864b811eefcd63b9cdb5db",
     "nx": "125a72d3e4dec04212a2cda76649b7dd95c62f14",
     "octavia": "1759b9e483609f59e81cc2a00ee05d3e370982cf",
@@ -57,6 +59,7 @@
     "pacseek": "e1b2f185d78153534b63d45b604571ed49d53d29",
     "pacserve": "6c4a26d45f673d88236d3a5219b8b21f9074df16",
     "paru": "9f00c1bad581ba6a3e96158dfbbabd693a5ee179",
+    "phpstorm": "e70d07fb2f80b95e5d22cbab5801412b5616f48e",
     "picosvg": "574517dc99253abf749df9ee8dbe2636a4a73d5a",
     "pithos": "fb46c3a02bef3bd948b93a6f9029d4492815e508",
     "pls": "e5d77a52ee776c696de4c907808281d8cb3f8c6b",
@@ -86,6 +89,6 @@
     "xorgxrdp": "1d939a0cf1d605a2e395a544704e3312685e4206",
     "xrdp": "5334cf7ffd927a1366163872383ef0d506d43419",
     "yacy": "14b99e76a4fa1abee45404fb79e4a1f9cbf4f98f",
-    "yay": "941984753e37215a6c8cacd3260cb68960781cd8",
+    "yay": "bdf27d67421cfc9e4ca272d2c5b464daf55c7069",
     "zypper": "b92da4f3e1927bd3d7e7b2242938974f11c74b75"
 }
