@@ -1,0 +1,23 @@
+# SPDX-License-Identifier: BSD-2-Clause
+
+pkgname=symfony
+pkgrel=1
+pkgver=5.5.7
+pkgdesc="CLI tool for the Symfony PHP framework"
+arch=(x86_64)
+url="https://symfony.com/"
+license=(AGPL3)
+depends=(php git composer)
+makedepends=(go)
+source=(https://github.com/symfony-cli/symfony-cli/archive/refs/tags/v5.5.7.tar.gz)
+sha256sums=('881fe138f5ffc67db7a36f9fe66a730a23fa6013a2169f1a797e18a034540022')
+install="symfony.install"
+
+build() {
+	cd symfony-cli-${pkgver}
+	go build -o symfony -trimpath -ldflags '-s -w'
+}
+
+package() {
+	install -D -m 755 "${srcdir}/symfony-cli-${pkgver}/symfony" "${pkgdir}/usr/bin/symfony"
+}

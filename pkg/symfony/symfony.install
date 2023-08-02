@@ -1,0 +1,8 @@
+post_install() {
+        echo "          >>>>>"
+	echo "          >>>>>"
+	echo "IMPORTANT >>>>>" uncomment "\"extension=iconv\"" in "/etc/php/php.ini"
+	echo "IMPORTANT >>>>>" otherwise symfony cli will not work
+        echo "          >>>>>"
+        echo "          >>>>>"
+}

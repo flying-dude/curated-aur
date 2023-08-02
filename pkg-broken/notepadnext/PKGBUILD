@@ -1,0 +1,48 @@
+# SPDX-License-Identifier: BSD-2-Clause
+
+pkgname=notepadnext
+pkgver=0.6.3
+pkgrel=1
+pkgdesc="A cross-platform, reimplementation of Notepad++"
+
+arch=(x86_64)
+url="https://github.com/dail8859/NotepadNext"
+license=(GPL3)
+
+depends=(qt6-5compat)
+makedepends=(qt6-tools)
+
+source=(https://github.com/dail8859/NotepadNext/archive/refs/tags/v${pkgver}.tar.gz
+        https://github.com/alex-spataru/QSimpleUpdater/archive/14c1bef71d26c915eeaa05c988c55bdad98e1d75.tar.gz
+        https://github.com/githubuser0xFFFF/Qt-Advanced-Docking-System/archive/refs/tags/4.1.1.tar.gz
+        https://github.com/editorconfig/editorconfig-core-qt/archive/1ef645dcef0724e9d6f9d3456632119dd2d40a09.tar.gz
+        https://github.com/itay-grudev/SingleApplication/archive/refs/tags/v3.4.0.tar.gz
+        https://gitlab.freedesktop.org/uchardet/uchardet/-/archive/v0.0.8/uchardet-v0.0.8.tar.gz)
+sha256sums=('4e4d9d72b38e9b217e98aa3d1350faa470da5c092468fca6ceb12c1508d902bb'
+            'a23f78f846b9dfb4074d2371923c76dc5c7415548056ecb3454189bb02e8e8f4'
+            'bc029feaa9939e1cb639b4e1a085579450be68ca7fb8221f032b0e6499abbc1d'
+            'bfb59e0024c106c6168d6b8799e2c5c36f29a075f312e7f05d8e8d6f7c234268'
+            '495b1fd1e5c6e8a03c829dffe5c8c8f36fc44c0979eb2a58019569487b754411'
+            '5aa402a1b5b1dbb8d81096f141ff1224e079f4d3a1db0f79ecca782756d3a416')
+
+prepare() {
+	cd NotepadNext-${pkgver}/src
+	rmdir QSimpleUpdater; ln -s ../../QSimpleUpdater-14c1bef71d26c915eeaa05c988c55bdad98e1d75 QSimpleUpdater
+	rmdir ads; ln -s ../../Qt-Advanced-Docking-System-4.1.1 ads
+	rmdir editorconfig-core-qt; ln -s ../../editorconfig-core-qt-1ef645dcef0724e9d6f9d3456632119dd2d40a09 editorconfig-core-qt
+	rmdir singleapplication; ln -s ../../SingleApplication-3.4.0 singleapplication
+	rmdir uchardet; ln -s ../../uchardet-v0.0.8 uchardet
+}
+
+build() {
+	cd NotepadNext-${pkgver}
+	mkdir -p build
+	cd build
+	qmake6 ../src/NotepadNext.pro
+	make
+}
+
+package() {
+	cd NotepadNext-${pkgver}
+	make INSTALL_ROOT="${pkgdir}" install
+}
